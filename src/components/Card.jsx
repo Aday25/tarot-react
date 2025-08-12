@@ -11,7 +11,7 @@ export default function Card({ card, onClick }) {
       // Esperamos a que termine la animación antes de navegar
       setTimeout(() => {
         if (onClick) onClick(card.id);
-      }, 600);
+      }, 1000);
     }
   };
 

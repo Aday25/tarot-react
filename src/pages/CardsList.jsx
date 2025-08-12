@@ -1,46 +1,79 @@
 import React, { useEffect, useState } from 'react';
-// Hook para navegar programáticamente a otra ruta
 import { useNavigate } from 'react-router-dom';
-// Importamos función que llama la API para todas las cartas
 import { fetchAllCards } from '../services';
-// Importamos el componente Card, que muestra cada carta individual
 import Card from '../components/Card';
+import Candle from '../components/Candle';
+import './CardsList.css';
 
 export default function CardsList() {
-  // Estado para guardar las cartas que trae la API
   const [cards, setCards] = useState([]);
-  // Hook para cambiar la ruta cuando se hace click en una carta
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [showCards, setShowCards] = useState(false);
   const navigate = useNavigate();
 
-  // useEffect para ejecutar la llamada API solo una vez cuando el componente monta
   useEffect(() => {
     async function getCards() {
-      const data = await fetchAllCards(); // Esperamos la respuesta
-      setCards(data); // Guardamos las cartas en el estado para que React las renderice
+      const data = await fetchAllCards();
+      setCards(data);
     }
     getCards();
-  }, []); // Array vacío para que se ejecute solo la primera vez
+  }, []);
 
-  // Función que llamamos al hacer click en una carta, recibe su id
+  // Animación de aparición progresiva de cartas
+  useEffect(() => {
+    if (!showCards || cards.length === 0) return;
+
+    const interval = setInterval(() => {
+      setVisibleCount((count) => {
+        if (count >= cards.length) {
+          clearInterval(interval);
+          return count;
+        }
+        return count + 1;
+      });
+    }, 150);
+
+    return () => clearInterval(interval);
+  }, [showCards, cards]);
+
   const handleCardClick = (id) => {
-    // Navegamos a la ruta detalle usando el id
     navigate(`/card/${id}`);
   };
 
   return (
-    <div>
-      <h1>Cartas de Tarot</h1>
-      {/* Contenedor flexible para mostrar las cartas en filas */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-        {/* Recorremos las cartas y renderizamos un Card por cada una */}
-        {cards.map(card => (
-          <Card
-            key={card.id}
-            card={card}
-            faceDown={true}  // aquí está el truco para que no se revele 
-            onClick={() => handleCardClick(card.id)}
-          />
-        ))}
+    <div className="cards-page">
+      {/* HEADER FIJO */}
+      <header className="cards-header">
+        <div className="candles-wrapper">
+          <Candle />
+          <h1 className="page-title">Cartas de Tarot</h1>
+          <Candle />
+        </div>
+        <section className="welcome-section">
+          <p>
+            Bienvenid@ a tu portal de cartas de tarot. Aquí descubrirás los secretos y mensajes que el destino tiene preparados para ti.
+          </p>
+        </section>
+        <button className="reveal-button" onClick={() => setShowCards(true)}>
+          Revelar Cartas
+        </button>
+      </header>
+
+      {/* Fondo animado detrás de las cartas */}
+      <div className="cards-grid-background"></div>
+
+      {/* GRID DE CARTAS */}
+      <div className="cards-grid">
+        {showCards &&
+          cards.slice(0, visibleCount).map((card) => (
+            <Card
+              key={card.id}
+              card={card}
+              faceDown={true}
+              onClick={() => handleCardClick(card.id)}
+              className="fade-in-card"
+            />
+          ))}
       </div>
     </div>
   );

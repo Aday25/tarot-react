@@ -28,12 +28,11 @@
   height: 100%;
   backface-visibility: hidden;
   border-radius: 8px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #1a1a1a;
+  background-color: #073444;
   color: #eee;
 }
 
@@ -54,23 +53,30 @@
 
 /* Imagen y texto */
 .card-image {
-  width: 100%;
-  max-width: 150px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 8px 8px 0 0;
-  user-select: none;
   display: block;
-  margin: 0 auto;
+  width: 140px;      /* más pequeña que antes */
+  max-height: 180px; /* deja espacio para el texto */
+  height: auto;
+  object-fit: contain;
+  background-color: #073444;
+  border-radius: 8px;
+  padding: 6px;
+  margin: 10px auto 0;
+  box-sizing: border-box;
+  user-select: none;
 }
 
+
+
 .card-name {
-  margin: 5px 0 0 0;
-  font-weight: 600;
+  margin: 6px 0 0 0; /* un poco menos de margen arriba para aprovechar espacio */
+  font-weight: 400;
   font-family: 'Georgia', serif;
   color: #ddd;
   user-select: none;
-  max-width: 150px;
-  overflow-wrap: break-word;
+  max-width: 140px;
   text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
