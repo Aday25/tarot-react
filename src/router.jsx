@@ -15,10 +15,6 @@ const router = createBrowserRouter([
   {
     path: '/card/:id',    // Ruta con parámetro dinámico id de carta
     element: <CardDetail /> // Renderiza el detalle de la carta según id
-  },
-  {
-    path: '/reading',     // Ruta para la página de lectura de cartas (nivel 2)
-    element: <Reading />  // Componente que implementaremos luego
   }
 ]);
 
