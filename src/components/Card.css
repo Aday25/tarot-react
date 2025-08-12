@@ -6,8 +6,6 @@
   user-select: none;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-  background-color: #1a1a1a;
-  color: #eee;
 }
 
 .card-inner {
@@ -18,8 +16,6 @@
   transform-style: preserve-3d;
   border-radius: 8px;
   transform: rotateY(180deg); /* Boca abajo por defecto */
-  overflow: hidden; /* evita que el contenido rompa el borde redondeado */
-  box-sizing: border-box;
 }
 
 .card:not(.flipped) .card-inner {
@@ -28,21 +24,23 @@
 
 .card-front, .card-back {
   position: absolute;
-  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  width: 100%;
+  height: 100%;
   backface-visibility: hidden;
   border-radius: 8px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-color: #1a1a1a;
   color: #eee;
 }
 
-/* Mantener la imagen arriba y el texto abajo */
 .card-front {
   z-index: 2;
-  justify-content: flex-start;
-  padding: 0;
+  /* Para evitar que el texto y la imagen se desborden */
+  padding: 8px;
   box-sizing: border-box;
 }
 
@@ -54,24 +52,25 @@
   transform: rotateY(180deg);
 }
 
-/* Imagen y texto — evita recortes y mantiene la proporción */
+/* Imagen y texto */
 .card-image {
   width: 100%;
-  height: auto;          /* importante: quita altura fija para evitar recortes */
-  max-height: 65%;       /* controla cuanto ocupa la imagen dentro de la carta */
-  object-fit: contain;   /* muestra toda la imagen sin recortar */
+  max-width: 150px;
+  height: 140px;
+  object-fit: cover;
   border-radius: 8px 8px 0 0;
+  user-select: none;
   display: block;
+  margin: 0 auto;
 }
 
-/* Texto debajo de la imagen */
 .card-name {
-  margin: 10px 12px 0 12px;
+  margin: 5px 0 0 0;
   font-weight: 600;
   font-family: 'Georgia', serif;
   color: #ddd;
-  max-width: calc(100% - 24px);
+  user-select: none;
+  max-width: 150px;
   overflow-wrap: break-word;
   text-align: center;
-  line-height: 1.2;
 }
