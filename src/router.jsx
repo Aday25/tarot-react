@@ -5,7 +5,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 // Importamos los componentes de página que vamos a usar en las rutas
 import CardsList from './pages/CardsList';
 import CardDetail from './pages/CardDetail';
-import Reading from './pages/Reading';
 
 // Creamos el router con las rutas y qué componente se renderiza en cada path
 const router = createBrowserRouter([
