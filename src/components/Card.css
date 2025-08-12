@@ -1,46 +1,77 @@
 .card {
-  width: 120px;
-  height: 180px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  width: 160px;
+  height: 240px;
+  perspective: 1000px;
   cursor: pointer;
-  background-color: #1a1a1a; /* fondo oscuro para toque misterioso */
-  color: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   user-select: none;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #1a1a1a;
+  color: #eee;
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.4);
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 8px;
+  transform: rotateY(180deg); /* Boca abajo por defecto */
+  overflow: hidden; /* evita que el contenido rompa el borde redondeado */
+  box-sizing: border-box;
+}
+
+.card:not(.flipped) .card-inner {
+  transform: rotateY(0deg); /* Boca arriba cuando no flipped */
+}
+
+.card-front, .card-back {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  backface-visibility: hidden;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1a1a1a;
+  color: #eee;
+}
+
+/* Mantener la imagen arriba y el texto abajo */
+.card-front {
+  z-index: 2;
+  justify-content: flex-start;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .card-back {
-  font-size: 3rem;
-  user-select: none;
+  background-image: url('/card-back.png'); /* Imagen trasera */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotateY(180deg);
 }
 
-.card-front {
-  text-align: center;
-  width: 100%;
-}
-
+/* Imagen y texto — evita recortes y mantiene la proporción */
 .card-image {
   width: 100%;
-  height: 140px;
-  object-fit: cover;
+  height: auto;          /* importante: quita altura fija para evitar recortes */
+  max-height: 65%;       /* controla cuanto ocupa la imagen dentro de la carta */
+  object-fit: contain;   /* muestra toda la imagen sin recortar */
   border-radius: 8px 8px 0 0;
-  user-select: none;
+  display: block;
 }
 
+/* Texto debajo de la imagen */
 .card-name {
-  margin: 5px 0 0 0;
+  margin: 10px 12px 0 12px;
   font-weight: 600;
   font-family: 'Georgia', serif;
   color: #ddd;
-  user-select: none;
+  max-width: calc(100% - 24px);
+  overflow-wrap: break-word;
+  text-align: center;
+  line-height: 1.2;
 }

@@ -33,9 +33,13 @@ export default function CardsList() {
       {/* Contenedor flexible para mostrar las cartas en filas */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
         {/* Recorremos las cartas y renderizamos un Card por cada una */}
-        {cards.map((card) => (
-          // Pasamos la carta y la función para manejar clicks
-          <Card key={card.id} card={card} onClick={handleCardClick} />
+        {cards.map(card => (
+          <Card
+            key={card.id}
+            card={card}
+            faceDown={true}  // aquí está el truco para que no se revele 
+            onClick={() => handleCardClick(card.id)}
+          />
         ))}
       </div>
     </div>
