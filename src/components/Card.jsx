@@ -1,36 +1,32 @@
 import React from 'react';
+import './Card.css'; // Importamos el CSS externo para los estilos
 
-export default function Card({ card, faceDown }) {
-  // Si faceDown es true, mostramos la carta boca abajo (por ejemplo, con una imagen genérica o un diseño)
+export default function Card({ card, faceDown, onClick }) {
+  // Si faceDown es true, la carta se muestra boca abajo
   // Si no, mostramos la imagen y nombre de la carta
 
-  const cardStyle = {
-    width: '120px',
-    height: '180px',
-    border: '1px solid #ccc',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    backgroundColor: '#eee',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    userSelect: 'none',
+  // Función para manejar el click (si pasas onClick)
+  const handleClick = () => {
+    if (onClick) {
+      onClick(card);
+    }
   };
 
   return (
-    <div style={cardStyle}>
+    <div className="card" onClick={handleClick} role="button" tabIndex={0} onKeyDown={e => e.key === 'Enter' && handleClick()}>
       {faceDown ? (
-        // Carta boca abajo: solo mostramos texto o imagen genérica
-        <span>🂠</span> // símbolo para carta boca abajo
+        // Carta boca abajo: mostramos un icono o símbolo genérico
+        <span className="card-back">🂠</span>
       ) : (
-        // Carta boca arriba: mostramos la imagen y nombre
-        <div>
+        // Carta boca arriba: imagen y nombre
+        <div className="card-front">
           <img
             src={card.arcaneImage.imageSrc}
             alt={card.arcaneName}
-            style={{ width: '100%', borderRadius: '8px' }}
+            className="card-image"
+            loading="lazy" // carga perezosa para optimizar
           />
-          <p>{card.arcaneName}</p>
+          <p className="card-name">{card.arcaneName}</p>
         </div>
       )}
     </div>

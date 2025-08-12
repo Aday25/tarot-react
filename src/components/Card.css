@@ -1,0 +1,46 @@
+.card {
+  width: 120px;
+  height: 180px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #1a1a1a; /* fondo oscuro para toque misterioso */
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.4);
+}
+
+.card-back {
+  font-size: 3rem;
+  user-select: none;
+}
+
+.card-front {
+  text-align: center;
+  width: 100%;
+}
+
+.card-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  user-select: none;
+}
+
+.card-name {
+  margin: 5px 0 0 0;
+  font-weight: 600;
+  font-family: 'Georgia', serif;
+  color: #ddd;
+  user-select: none;
+}
