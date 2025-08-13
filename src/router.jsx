@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Importamos los componentes de página que vamos a usar en las rutas
 import CardsList from './pages/CardsList';
-import CardDetail from './pages/CardDetail';
+import CardsDetail from './pages/CardsDetail';
 
 // Creamos el router con las rutas y qué componente se renderiza en cada path
 const router = createBrowserRouter([
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/card/:id',    // Ruta con parámetro dinámico id de carta
-    element: <CardDetail /> // Renderiza el detalle de la carta según id
+    element: <CardsDetail /> // Renderiza el detalle de la carta según id
   }
 ]);
 

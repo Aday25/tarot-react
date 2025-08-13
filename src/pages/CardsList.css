@@ -10,47 +10,76 @@
   z-index: 20;
   border-radius: 10px;
   overflow: visible;
-  min-height: calc(100vh - 240px); /* altura mínima para que el footer siempre esté abajo */
+  min-height: auto; /* eliminamos min-height para que no genere huecos */
 }
 
 /* FONDO ANIMADO DETRÁS DE LAS CARTAS */
-.cards-grid-background {
-  position: absolute; /* ahora se mueve con el contenido */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; /* cubre todo el contenedor */
-  background: linear-gradient(-45deg, #271db9, #788e2f, #535c21, #271db9);
+.cards-page-content {
+  flex: 1;
+  padding: 24px 20px;
+  color: #fff;
+  background: linear-gradient(-45deg, #1c1b1d, #18117a, rgb(66, 80, 239), #6591cb, #0c1f51);
+  background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
-  border-radius: 10px;
-  z-index: 10; /* detrás de las cartas */
-  pointer-events: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* empuja al contenido hacia arriba */
+  min-height: 84vh; /* asegura que el footer siempre quede abajo */
 }
 
 /* Animación fondo */
 @keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* TEXTO DE BIENVENIDA */
+.welcome-text {
+  text-align: center;
+  color: #6fbdea;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.deck-image {
+  width: 260px; /* más grande */
+  max-width: 90%; /* que no desborde en móvil */
+  height: auto;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* OPCIONAL: animación suave para ocultar */
+.deck-image.hide {
+  opacity: 0;
+  transform: translateY(-50px);
+  pointer-events: none;
+}
+
+/* CONTENEDOR DE LA BARAJA */
+.deck-image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* Animación de caída en abanico de las cartas */
+.drop-in-card {
+  opacity: 0;
+  animation: dropIn 0.6s ease-out forwards;
+}
+
+@keyframes dropIn {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    transform: translateY(-150px) rotate(var(--rotation)) scale(0.8);
+    opacity: 0;
   }
   100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Animación de entrada cartas */
-.fade-in-card {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.5s forwards;
-}
-
-@keyframes fadeInUp {
-  to {
+    transform: translateY(0) rotate(var(--rotation)) scale(1);
     opacity: 1;
-    transform: translateY(0);
   }
 }
-

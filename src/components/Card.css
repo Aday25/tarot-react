@@ -84,8 +84,29 @@
   font-size: 0.7rem;  /* tamaño reducido para que encaje bien */
 }
 
-/* Responsive */
+/* Animación entrada tipo "abanico" */
+.drop-in-card {
+  animation: dropIn 0.8s ease forwards;
+  transform: translateY(-100px) rotate(var(--rotation, 0deg));
+  opacity: 0;
+}
 
+@keyframes dropIn {
+  0% {
+    transform: translateY(-100px) rotate(var(--rotation, 0deg));
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(10px) rotate(calc(var(--rotation, 0deg) * 0.7));
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
 @media (max-width: 1400px) {
   .cards-grid {
     grid-template-columns: repeat(9, 100px);

@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import './Card.css';
 
-export default function Card({ card, onClick }) {
-  // Arranca flipped = true para que la carta esté boca abajo al cargar
+export default function Card({ card, onClick, className = '', style = {} }) {
   const [flipped, setFlipped] = useState(true);
 
   const handleClick = () => {
-    if (flipped) { // Si está boca abajo, la giramos para mostrar la carta
+    if (flipped) {
       setFlipped(false);
-      // Esperamos a que termine la animación antes de navegar
       setTimeout(() => {
         if (onClick) onClick(card.id);
       }, 2100);
@@ -17,7 +15,8 @@ export default function Card({ card, onClick }) {
 
   return (
     <div
-      className={`card ${flipped ? 'flipped' : ''}`}
+      className={`card ${flipped ? 'flipped' : ''} ${className}`}
+      style={style}
       onClick={handleClick}
       role="button"
       tabIndex={0}

@@ -1,0 +1,148 @@
+/* Estructura de página para mantener el footer al final */
+.cards-detail-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Área central con fondo degradado animado */
+.cards-detail-content {
+    flex: 1;
+    padding: 24px 20px;
+    color: #fff;
+    background: linear-gradient(-45deg, #1c1b1d, #18117a, rgb(66, 80, 239), #6591cb, #0c1f51);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    box-sizing: border-box;
+}
+
+/* Contenedor de dos columnas (desktop) */
+.card-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* dos columnas iguales */
+    gap: 28px;
+    align-items: start;
+    /* alinear al inicio para que no se centren verticalmente */
+}
+
+/* Columnas con panel suave */
+.arcane-section,
+.goddess-section {
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 18px;
+    box-sizing: border-box;
+    text-align: left;
+    /* clave: todo alineado a la izquierda */
+}
+
+/* Titulares */
+.arcane-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+    color: #ffe8a6;
+}
+
+.goddess-title {
+    font-size: 1.6rem;
+    line-height: 1.25;
+    margin: 0 0 12px 0;
+    color: #ffdca8;
+}
+
+/* Imágenes: tamaño razonable y alineadas a la izquierda */
+.arcane-image {
+    display: block;
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 0 0 14px 0;
+    /* margen inferior, nada de centrado */
+}
+
+.goddess-image {
+    display: block;
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 0 0 14px 0;
+}
+
+/* Textos */
+.arcane-description,
+.goddess-description {
+    max-width: 60ch;
+    /* legibilidad */
+    font-size: 1rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* Fila de imagen + texto (Arcano) */
+.arcane-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    /* alinear arriba */
+}
+
+.arcane-description {
+    flex: 1;
+    /* ocupar todo el espacio libre */
+}
+
+/* Fila de imagen + texto (Diosa) */
+.goddess-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.goddess-description {
+    flex: 1;
+}
+
+/* Animación del fondo */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* RESPONSIVE: en móviles apilar columnas */
+@media (max-width: 900px) {
+    .card-detail-container {
+        grid-template-columns: 1fr;
+    }
+
+    .arcane-image {
+        max-width: 100%;
+    }
+
+    .goddess-image {
+        max-width: 100%;
+    }
+
+    /* Ajuste responsive: apilar en móvil */
+    .arcane-row,
+    .goddess-row {
+        flex-direction: column;
+    }
+
+}

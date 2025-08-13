@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import { fetchAllCards } from '../services';
 import Card from '../components/Card';
-import Header from '../components/Navbar/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import './CardsList.css';
 
@@ -29,9 +29,9 @@ export default function CardsList() {
           clearInterval(interval);
           return count;
         }
-        return count + 9;
+        return count + 1; // mostrar una carta cada vez
       });
-    }, 100);
+    }, 150); // más lento para apreciar el efecto
 
     return () => clearInterval(interval);
   }, [showCards, cards]);
@@ -42,29 +42,46 @@ export default function CardsList() {
 
   return (
     <div className="cards-page">
-      <Header 
-        onRevealClick={() => setShowCards(true)} 
+      <Navbar
+        onRevealClick={() => setShowCards(true)}
         onOtherClick={() => alert('Pendiente de la parte 2')}
       />
 
-      <section className="welcome-section">
-        <p>Bienvenid@ a tu portal de cartas de tarot.</p>
-      </section>
+      <main className="cards-page-content">
+        {!showCards && (
+          <>
+            <section className="welcome-section">
+              <p className="welcome-text">
+                Bienvenid@ a tu portal de tarot. Libera a los Arcanos y elige una carta.
+              </p>
+              <div className="deck-image-wrapper">
+              <img src="/baraja.png" alt="Mazo de cartas" className="deck-image" />
+            </div>
+            </section>
 
-      <div className="cards-grid-background"></div>
+            
+          </>
+        )}
 
-      <div className="cards-grid">
-        {showCards &&
-          cards.slice(0, visibleCount).map((card) => (
-            <Card
-              key={card.id}
-              card={card}
-              faceDown={true}
-              onClick={() => handleCardClick(card.id)}
-              className="fade-in-card"
-            />
-          ))}
-      </div>
+        <div className="cards-grid-background"></div>
+
+        <div className="cards-grid">
+          {showCards &&
+            cards.slice(0, visibleCount).map((card, i) => (
+              <Card
+                key={card.id}
+                card={card}
+                faceDown={true}
+                onClick={() => handleCardClick(card.id)}
+                className="drop-in-card"
+                style={{
+                  "--rotation": `${(i - cards.length / 2) * 3}deg`,
+                  animationDelay: `${i * 0.15}s`
+                }}
+              />
+            ))}
+        </div>
+      </main>
 
       <Footer />
     </div>
