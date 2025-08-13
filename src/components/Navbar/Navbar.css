@@ -86,6 +86,44 @@
   }
 }
 
+/* === NUEVO: Botón de música === */
+/* Botón de música con mismo estilo */
+.music-btn {
+  background-color: #d4af37;
+  border: none;
+  padding: 12px 12px;
+  color: #1a1a1a;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  animation: pulse 3s infinite;
+  animation-delay: 3s; /* para no coincidir con los otros */
+}
+
+.music-btn:hover {
+  background-color: #f1c40f;
+  transform: scale(1.07);
+  box-shadow: 0 0 25px #ffd700;
+}
+
+/* Posición escritorio */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .navbar-left {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+}
+
+/* ============================== */
+
 @media (max-width: 768px) {
   .cards-header {
     flex-direction: column;
