@@ -1,97 +1,30 @@
-.cards-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #0d377f;
-  z-index: 100; /* muy arriba para que siempre esté encima */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.page-title {
-  color: #d4af37;
-  font-size: 4rem;
-  font-weight: bold;
-  margin: 0; /* para controlar mejor el espacio */
-}
-
-.candles-wrapper {
-  display: flex;
-  align-items: baseline; /* para que el título y las velas estén alineados */
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-  width: 100%;
-}
-
-.welcome-section {
-  text-align: center;
-  max-width: 600px;
-  color: #ddd;
-  font-size: 1rem;
-  margin: 15px 0 10px;
-}
-
-/* Botón con efecto latido */
-.reveal-button {
-  background-color: #d4af37;
-  border: none;
-  padding: 12px 24px;
-  color: #1a1a1a;
-  font-weight: bold;
-  border-radius: 25px;
-  cursor: pointer;
-  animation: pulse 1.5s infinite;
-  margin-bottom: 10px;
-}
-
-.reveal-button:hover {
-  background-color: #f1c40f;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 10px #d4af37;
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #ffd700;
-  }
-}
-
 /* CONTENEDOR DE CARTAS */
 .cards-grid {
   position: relative;
-  margin-top: 360px; /* espacio para el header fijo */
-  padding: 20px 10px 40px;
+  margin-top: 5px;
+  padding: 0px 10px 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
   z-index: 20;
   border-radius: 10px;
-  overflow: visible; /* para que el contenido no se oculte */
-  min-height: calc(100vh - 360px); /* mínimo espacio para no esconder las cartas */
+  overflow: visible;
+  min-height: calc(100vh - 240px); /* altura mínima para que el footer siempre esté abajo */
 }
 
 /* FONDO ANIMADO DETRÁS DE LAS CARTAS */
 .cards-grid-background {
-  position: fixed;
-  top: 160px; /* justo debajo del header */
+  position: absolute; /* ahora se mueve con el contenido */
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vh - 160px); /* altura restante de la pantalla */
+  height: 100%; /* cubre todo el contenedor */
   background: linear-gradient(-45deg, #271db9, #788e2f, #535c21, #271db9);
-  background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
   border-radius: 10px;
   z-index: 10; /* detrás de las cartas */
-  pointer-events: none; /* para que no interfiera con clicks */
+  pointer-events: none;
 }
 
 /* Animación fondo */
@@ -120,3 +53,4 @@
     transform: translateY(0);
   }
 }
+

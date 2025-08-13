@@ -1,0 +1,81 @@
+.footer {
+  background-color: #0d377f;
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  border-top: 2px solid #d4af37;
+  user-select: none;
+
+  width: 100%;       /* Evitar 100vw */
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  z-index: 30;
+  overflow-x: hidden;
+}
+
+.footer-logo {
+  height: 55px;
+}
+
+.footer-text {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.footer-contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footer-contacts a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+}
+
+.footer-contacts a:hover {
+  color: #d4af37;
+}
+
+.icon-circle {
+  background-color: #000;
+  border-radius: 50%;
+  padding: 4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.github-icon {
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.github-icon:hover {
+  color: #d4af37;
+}
+
+.linkedin-icon {
+  color: #0077b5;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.linkedin-icon:hover {
+  color: #d4af37;
+}

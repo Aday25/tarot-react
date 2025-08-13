@@ -1,25 +1,31 @@
 .card {
-  width: 160px;
-  height: 240px;
+  width: 100px;
+  height: 164px; /* proporcional al ancho */
   perspective: 1000px;
   cursor: pointer;
   user-select: none;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+  transform: scale(1.05);
 }
 
 .card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
   border-radius: 8px;
-  transform: rotateY(180deg); /* Boca abajo por defecto */
+  transform: rotateY(180deg);
 }
 
 .card:not(.flipped) .card-inner {
-  transform: rotateY(0deg); /* Boca arriba cuando no flipped */
+  transform: rotateY(0deg);
 }
 
 .card-front, .card-back {
@@ -34,49 +40,73 @@
   align-items: center;
   background-color: #073444;
   color: #eee;
+  box-sizing: border-box;
+  padding: 3px;
 }
 
 .card-front {
   z-index: 2;
-  /* Para evitar que el texto y la imagen se desborden */
-  padding: 8px;
-  box-sizing: border-box;
 }
 
 .card-back {
-  background-image: url('/card-back.png'); /* Imagen trasera */
+  background-image: url('/card-back.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transform: rotateY(180deg);
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
 }
 
-/* Imagen y texto */
 .card-image {
-  display: block;
-  width: 140px;      /* más pequeña que antes */
-  max-height: 180px; /* deja espacio para el texto */
+  width: 80px;           /* ajustado al nuevo ancho */
+  max-height: 110px;     /* proporcional a la carta */
   height: auto;
   object-fit: contain;
   background-color: #073444;
   border-radius: 8px;
-  padding: 6px;
-  margin: 10px auto 0;
-  box-sizing: border-box;
+  padding: 4px;
+  margin: 8px auto 0;
   user-select: none;
 }
 
-
-
 .card-name {
-  margin: 6px 0 0 0; /* un poco menos de margen arriba para aprovechar espacio */
-  font-weight: 400;
+  margin: 3px 0 0 0;
+  font-weight: 500;
   font-family: 'Georgia', serif;
   color: #ddd;
   user-select: none;
-  max-width: 140px;
+  max-width: 90px;
   text-align: center;
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  font-size: 0.7rem;  /* tamaño reducido para que encaje bien */
+}
+
+/* Responsive */
+
+@media (max-width: 1400px) {
+  .cards-grid {
+    grid-template-columns: repeat(9, 100px);
+    max-width: max-content;
+  }
+}
+
+@media (max-width: 1000px) {
+  .cards-grid {
+    grid-template-columns: repeat(6, 100px);
+    max-width: max-content;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 100px);
+    max-width: max-content;
+  }
+  .card {
+    width: 100px;
+    height: 164px;
+  }
 }

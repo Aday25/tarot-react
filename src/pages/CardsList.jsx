@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchAllCards } from '../services';
 import Card from '../components/Card';
-import Candle from '../components/Candle';
+import Header from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
 import './CardsList.css';
 
 export default function CardsList() {
@@ -19,7 +20,6 @@ export default function CardsList() {
     getCards();
   }, []);
 
-  // Animación de aparición progresiva de cartas
   useEffect(() => {
     if (!showCards || cards.length === 0) return;
 
@@ -29,9 +29,9 @@ export default function CardsList() {
           clearInterval(interval);
           return count;
         }
-        return count + 1;
+        return count + 9;
       });
-    }, 150);
+    }, 100);
 
     return () => clearInterval(interval);
   }, [showCards, cards]);
@@ -42,27 +42,17 @@ export default function CardsList() {
 
   return (
     <div className="cards-page">
-      {/* HEADER FIJO */}
-      <header className="cards-header">
-        <div className="candles-wrapper">
-          <Candle />
-          <h1 className="page-title">Cartas de Tarot</h1>
-          <Candle />
-        </div>
-        <section className="welcome-section">
-          <p>
-            Bienvenid@ a tu portal de cartas de tarot. Aquí descubrirás los secretos y mensajes que el destino tiene preparados para ti.
-          </p>
-        </section>
-        <button className="reveal-button" onClick={() => setShowCards(true)}>
-          Revelar Cartas
-        </button>
-      </header>
+      <Header 
+        onRevealClick={() => setShowCards(true)} 
+        onOtherClick={() => alert('Pendiente de la parte 2')}
+      />
 
-      {/* Fondo animado detrás de las cartas */}
+      <section className="welcome-section">
+        <p>Bienvenid@ a tu portal de cartas de tarot.</p>
+      </section>
+
       <div className="cards-grid-background"></div>
 
-      {/* GRID DE CARTAS */}
       <div className="cards-grid">
         {showCards &&
           cards.slice(0, visibleCount).map((card) => (
@@ -75,6 +65,8 @@ export default function CardsList() {
             />
           ))}
       </div>
+
+      <Footer />
     </div>
   );
 }
