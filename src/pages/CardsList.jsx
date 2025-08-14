@@ -40,7 +40,6 @@ export default function CardsList() {
     <div className="cards-page">
       <Navbar
         onRevealClick={() => setShowCards(true)}
-        onOtherClick={() => alert('Pendiente de la parte 2')}
       />
 
       <main className="cards-page-content">

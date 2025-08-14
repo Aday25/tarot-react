@@ -1,24 +1,31 @@
+// Router.jsx
 import React from 'react';
-// Importamos las herramientas para crear rutas en React Router v6.4+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-// Importamos los componentes de página que vamos a usar en las rutas
 import CardsList from './pages/CardsList';
 import CardsDetail from './pages/CardsDetail';
+import TarotReading from './pages/TarotReading';
+import FinalReading from './pages/FinalReading';
 
-// Creamos el router con las rutas y qué componente se renderiza en cada path
 const router = createBrowserRouter([
   {
-    path: '/',            // Ruta raíz, cuando visitas /
-    element: <CardsList />  // Renderiza la lista de cartas boca abajo
+    path: '/', 
+    element: <CardsList />
   },
   {
-    path: '/card/:id',    // Ruta con parámetro dinámico id de carta
-    element: <CardsDetail /> // Renderiza el detalle de la carta según id
+    path: '/card/:id', 
+    element: <CardsDetail />
+  },
+  {
+    path: '/tarot-reading', 
+    element: <TarotReading />
+  },
+  {
+    path: '/reading', 
+    element: <FinalReading />
   }
 ]);
 
-// Exportamos un componente Router que usa el RouterProvider para manejar todo
 export default function Router() {
   return <RouterProvider router={router} />;
 }

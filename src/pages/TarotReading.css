@@ -1,0 +1,47 @@
+/* Contenedor de botones centrado y fijo */
+.reading-buttons-fixed {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: relative; /* No se mueve con la animación de cartas */
+}
+
+/* Estilo base de botones */
+.reading-buttons-fixed button {
+  background-color: white;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+/* Botón activo cuando se pueden ver las cartas */
+.reading-buttons-fixed button.active {
+  background-color: #f8c300; /* Amarillo brillante o el color que quieras */
+  color: #000;
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Efecto hover solo si está activo */
+.reading-buttons-fixed button.active:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* Botón deshabilitado */
+.reading-buttons-fixed button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  transform: none;
+  box-shadow: none;
+}
+ 
