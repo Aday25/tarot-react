@@ -15,11 +15,12 @@ export default function TarotReading() {
   const [selectedCards, setSelectedCards] = useState([]);
   const navigate = useNavigate();
 
+  // Carga las cartas desde la API
   useEffect(() => {
     async function getCards() {
       try {
         const data = await fetchAllCards();
-        setCards(data || []); // seguridad si fetch devuelve null/undefined
+        setCards(data || []);
       } catch (err) {
         console.error('Error al cargar las cartas:', err);
         setCards([]);
@@ -43,31 +44,33 @@ export default function TarotReading() {
     return () => clearInterval(interval);
   }, [showCards, cards]);
 
-  // Selección de cartas (máx 3) con alert si se supera
+  // Selección de cartas (máx 3)
   const toggleSelectCard = (card) => {
     if (!card?.id) return;
 
     if (selectedCards.includes(card.id)) {
-      // Deselecciona carta
-      setSelectedCards(prev => prev.filter(id => id !== card.id));
+      setSelectedCards((prev) => prev.filter((id) => id !== card.id));
     } else {
-      const futureLength = selectedCards.length + 1;
-      if (futureLength <= 3) {
-        setSelectedCards(prev => [...prev, card.id]);
-      } else {
-        alert('Ya has seleccionado 3 cartas. Puedes reiniciar si quieres elegir de nuevo.');
+      if (selectedCards.length >= 3) {
+        alert('Ya has elegido 3 cartas, no puedes elegir más.');
+        return;
       }
+      setSelectedCards((prev) => [...prev, card.id]);
     }
   };
 
-  // Inicia lectura solo si hay 3 cartas
+  // Inicia la lectura solo si hay 3 cartas seleccionadas
   const startReading = () => {
     if (selectedCards.length !== 3) return;
     localStorage.setItem('selectedCards', JSON.stringify(selectedCards));
     navigate('/reading');
   };
 
-  const resetSelection = () => setSelectedCards([]);
+  // Reinicia la selección y muestra alert
+  const resetSelection = () => {
+    setSelectedCards([]);
+    alert('Selección reiniciada');
+  };
 
   return (
     <div className="cards-page">
@@ -110,20 +113,16 @@ export default function TarotReading() {
               ))}
             </div>
 
-            {/* Botones centrados y con efecto al llegar a 3 cartas */}
-            <div style={{ marginTop: '20px', textAlign: 'center' }}>
+            {/* Botones centrados abajo */}
+            <div className="reading-buttons">
               <button
                 onClick={startReading}
                 disabled={selectedCards.length !== 3}
-                className={`start-reading-button ${selectedCards.length === 3 ? 'active' : ''}`}
+                className={selectedCards.length === 3 ? 'active' : ''}
               >
                 Ver lectura
               </button>
-              <button
-                onClick={resetSelection}
-                style={{ marginLeft: '10px' }}
-                className="reset-selection-button"
-              >
+              <button onClick={resetSelection}>
                 Reiniciar
               </button>
             </div>
