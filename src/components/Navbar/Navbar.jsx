@@ -1,16 +1,13 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; 
+import { useLocation, useNavigate } from 'react-router-dom';
 import Candle from '../Candle';
 import './Navbar.css';
 
 export default function Navbar({ onRevealClick, onOtherClick }) {
-  const location = useLocation(); 
-  const navigate = useNavigate(); 
-
-  // Detectamos si estamos en la página de CardsList
+  const location = useLocation();
+  const navigate = useNavigate();
   const isCardsListPage = location.pathname === '/';
 
-  // Botón principal dinámico
   const handleMainButtonClick = () => {
     if (isCardsListPage) {
       onRevealClick();
@@ -21,9 +18,7 @@ export default function Navbar({ onRevealClick, onOtherClick }) {
 
   return (
     <header className="cards-header">
-      <div className="navbar-left">
-        {/* Aquí ya no hay botón de música */}
-      </div>
+      <div className="navbar-left"></div>
 
       <div className="candles-wrapper">
         <Candle />
@@ -41,6 +36,8 @@ export default function Navbar({ onRevealClick, onOtherClick }) {
             Segunda Parte
           </button>
         )}
+
+        {/* Aquí ya no ponemos MusicButton */}
       </div>
     </header>
   );

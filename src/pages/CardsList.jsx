@@ -22,23 +22,19 @@ export default function CardsList() {
 
   useEffect(() => {
     if (!showCards || cards.length === 0) return;
-
     const interval = setInterval(() => {
-      setVisibleCount((count) => {
+      setVisibleCount(count => {
         if (count >= cards.length) {
           clearInterval(interval);
           return count;
         }
-        return count + 1; // mostrar una carta cada vez
+        return count + 1;
       });
-    }, 150); // más lento para apreciar el efecto
-
+    }, 150);
     return () => clearInterval(interval);
   }, [showCards, cards]);
 
-  const handleCardClick = (id) => {
-    navigate(`/card/${id}`);
-  };
+  const handleCardClick = id => navigate(`/card/${id}`);
 
   return (
     <div className="cards-page">
@@ -49,38 +45,35 @@ export default function CardsList() {
 
       <main className="cards-page-content">
         {!showCards && (
-          <>
-            <section className="welcome-section">
-              <p className="welcome-text">
-                Bienvenid@ a tu portal de tarot. Libera a los Arcanos y elige una carta.
-              </p>
-              <div className="deck-image-wrapper">
+          <section className="welcome-section">
+            <p className="welcome-text">
+              Bienvenid@ a tu portal de tarot. Libera a los Arcanos y elige una carta.
+            </p>
+            <div className="deck-image-wrapper">
               <img src="/baraja.png" alt="Mazo de cartas" className="deck-image" />
             </div>
-            </section>
-
-            
-          </>
+          </section>
         )}
 
         <div className="cards-grid-background"></div>
 
-        <div className="cards-grid">
-          {showCards &&
-            cards.slice(0, visibleCount).map((card, i) => (
+        {showCards && (
+          <div className="cards-grid">
+            {cards.slice(0, visibleCount).map((card, i) => (
               <Card
                 key={card.id}
                 card={card}
-                faceDown={true}
+                faceDown
                 onClick={() => handleCardClick(card.id)}
                 className="drop-in-card"
                 style={{
                   "--rotation": `${(i - cards.length / 2) * 3}deg`,
-                  animationDelay: `${i * 0.15}s`
+                  animationDelay: `${i * 0.15}s`,
                 }}
               />
             ))}
-        </div>
+          </div>
+        )}
       </main>
 
       <Footer />

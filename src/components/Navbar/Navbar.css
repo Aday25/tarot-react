@@ -1,7 +1,6 @@
+/* ================== NAVBAR ================== */
 .cards-header {
   position: relative;
-  top: 0;
-  left: 0;
   width: 100%;
   background-color: #0d377f;
   z-index: 100;
@@ -15,13 +14,19 @@
   border-bottom: #d4af37;
 }
 
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .candles-wrapper {
   display: flex;
   align-items: baseline;
   justify-content: center;
   gap: 10px;
   flex-grow: 1;
-  overflow: visible; /* Evita que la llama se corte en móvil */
+  overflow: visible;
 }
 
 .page-title {
@@ -37,9 +42,10 @@
   gap: 15px;
 }
 
-/* Estilo común para ambos botones */
+/* Estilo común para todos los botones */
 .reveal-button,
-.other-button {
+.other-button,
+#music-toggle {
   background-color: #d4af37;
   border: none;
   padding: 12px 24px;
@@ -49,26 +55,20 @@
   cursor: pointer;
   user-select: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  animation: pulse 3s infinite; /* Pulsación más lenta */
+  animation: pulse 3s infinite;
 }
 
-/* Diferentes delays para alternar la pulsación */
-.reveal-button {
-  animation-delay: 0s;
-}
+.reveal-button { animation-delay: 0s; }
+.other-button { animation-delay: 1.5s; }
 
-.other-button {
-  animation-delay: 1.5s; /* Mitad del ciclo, así se alterna */
-}
-
-/* Hover para intensificar el efecto y cambiar color */
 .reveal-button:hover {
   background-color: #f1c40f;
   transform: scale(1.07);
   box-shadow: 0 0 25px #ffd700;
 }
 
-.other-button:hover {
+.other-button:hover,
+#music-toggle:hover {
   background-color: #e67e22;
   transform: scale(1.07);
   box-shadow: 0 0 25px #ffd700;
@@ -86,52 +86,8 @@
   }
 }
 
-/* === NUEVO: Botón de música === */
-/* Botón de música con mismo estilo */
-.music-btn {
-  background-color: #d4af37;
-  border: none;
-  padding: 12px 12px;
-  color: #1a1a1a;
-  font-weight: bold;
-  border-radius: 25px;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  animation: pulse 3s infinite;
-  animation-delay: 3s; /* para no coincidir con los otros */
-}
-
-.music-btn:hover {
-  background-color: #f1c40f;
-  transform: scale(1.07);
-  box-shadow: 0 0 25px #ffd700;
-}
-
-/* Posición escritorio */
-.navbar-left {
-  display: flex;
-  align-items: center;
-}
-
+/* ======= MEDIA QUERIES ======= */
 @media (max-width: 768px) {
-  .navbar-left {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-  }
-}
-
-/* ============================== */
-
-@media (max-width: 768px) {
-  .cards-header {
-    flex-direction: column;
-    height: auto;
-    padding: 15px;
-  }
-
- @media (max-width: 768px) {
   .cards-header {
     flex-direction: column;
     height: auto;
@@ -139,50 +95,29 @@
   }
 
   .candles-wrapper {
-    display: flex;
-    align-items: center; /* centramos verticalmente velas y título */
+    align-items: center;
     justify-content: center;
     gap: 1.7rem;
-    margin: 0; /* reseteamos márgenes raros */
+    margin-top: 15px;
   }
 
   .page-title {
     font-size: 2rem;
     text-align: center;
-    margin: 5px 0 0 0; /* sube un pelín el título */
+    margin: 5px 0 0 0;
   }
 
   .header-right {
     flex-direction: row;
-    gap: 18px; /* más separación entre botones */
+    gap: 18px;
     width: auto;
     justify-content: center;
     margin-top: 15px;
   }
 
   .reveal-button,
-  .other-button {
-    width: auto;
-    padding: 8px 16px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-}
-
-  .candles-wrapper {
-    margin-top: 15px; /* bajamos las velas para alinear con el h1 */
-  }
-
-  .header-right {
-    flex-direction: row;
-    gap: 15px; /* un poquito más de separación entre botones */
-    width: auto;
-    justify-content: center;
-    margin-top: 15px; /* mantener espacio desde las velas */
-  }
-
-  .reveal-button,
-  .other-button {
+  .other-button,
+  #music-toggle {
     width: auto;
     padding: 8px 16px;
   }
