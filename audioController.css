@@ -1,0 +1,16 @@
+#music-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+#music-toggle:hover {
+  transform: scale(1.2);
+}
