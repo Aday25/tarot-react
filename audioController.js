@@ -1,32 +1,34 @@
-// Creamos el audio UNA sola vez, fuera de cualquier función
-const audio = new Audio("/whispers.mp3");
-audio.loop = true;
-audio.volume = 0.5;
+// Crear el objeto Audio una sola vez
+// La ruta debe ser relativa al "base" de GitHub Pages
+const audio = new Audio("/tarot-react/whispers.mp3");
+audio.loop = true; // Reproducir en bucle
+audio.volume = 0.5; // Volumen inicial
 
-// Estado inicial de reproducción desde localStorage
+// Recuperar estado de reproducción desde localStorage
 let isPlaying = localStorage.getItem("musicPlaying") === "true";
 
-// Si estaba activada antes, reproducir al cargar
+// Si estaba sonando antes, reproducir automáticamente al cargar
 if (isPlaying) audio.play().catch(() => {});
 
-// Función para actualizar el icono del botón
+// Función para actualizar el botón de reproducción
 const updateButtonUI = () => {
   const btn = document.getElementById("music-toggle");
   if (btn) btn.textContent = isPlaying ? "🔊" : "🔈";
 };
 
-// Funciones para controlar la música
+// Función para reproducir audio
 const playAudio = () => {
-  if (!isPlaying) { // Solo si no estaba sonando
-    audio.play().catch(() => {});
+  if (!isPlaying) {
+    audio.play().catch(() => {}); // Evitar errores por autoplay
     isPlaying = true;
     localStorage.setItem("musicPlaying", true);
     updateButtonUI();
   }
 };
 
+// Función para pausar audio
 const pauseAudio = () => {
-  if (isPlaying) { // Solo si estaba sonando
+  if (isPlaying) {
     audio.pause();
     isPlaying = false;
     localStorage.setItem("musicPlaying", false);
@@ -34,15 +36,16 @@ const pauseAudio = () => {
   }
 };
 
-// Función para crear el botón
+// Función para crear el botón de reproducción
 const initMusicButton = (headerRight) => {
-  if (document.getElementById("music-toggle")) return; // Evita duplicados
+  if (document.getElementById("music-toggle")) return; // Evitar duplicados
 
   const btn = document.createElement("button");
   btn.id = "music-toggle";
   btn.className = "music-btn";
   btn.textContent = isPlaying ? "🔊" : "🔈";
 
+  // Alternar reproducción al hacer clic
   btn.addEventListener("click", () => {
     isPlaying ? pauseAudio() : playAudio();
   });
@@ -50,7 +53,7 @@ const initMusicButton = (headerRight) => {
   headerRight.appendChild(btn);
 };
 
-// Detecta cuándo aparece el navbar en el DOM
+// Esperar a que el navbar esté disponible en el DOM
 const waitForNavbar = () => {
   return new Promise((resolve) => {
     const check = setInterval(() => {
@@ -63,7 +66,7 @@ const waitForNavbar = () => {
   });
 };
 
-// Observa cambios en el DOM para reinsertar el botón si falta
+// Observar cambios en el DOM para reinserción del botón si desaparece
 const observer = new MutationObserver(() => {
   const headerRight = document.querySelector(".header-right");
   if (headerRight && !document.getElementById("music-toggle")) {
@@ -73,12 +76,12 @@ const observer = new MutationObserver(() => {
 
 observer.observe(document.body, { childList: true, subtree: true });
 
-// Primera carga
+// Inicialización al cargar la página
 document.addEventListener("DOMContentLoaded", async () => {
   const headerRight = await waitForNavbar();
   initMusicButton(headerRight);
 
-  // Evita que los navegadores bloqueen el audio hasta interacción del usuario
+  // Algunos navegadores bloquean autoplay: reproducir al primer click
   window.addEventListener(
     "pointerdown",
     () => {
