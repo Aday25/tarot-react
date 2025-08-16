@@ -1,3 +1,17 @@
+.deck-image2 {
+  width: 430px; /* más grande */
+  max-width: 90%; /* que no desborde en móvil */
+  height: auto;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* OPCIONAL: animación suave para ocultar */
+.deck-image2.hide {
+  opacity: 0;
+  transform: translateY(-50px);
+  pointer-events: none;
+}
+
 /* Contenedor de botones centrado y fijo */
 .reading-buttons {
   margin-top: 20px;
@@ -5,13 +19,15 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-  position: relative; /* No se mueve con la animación de cartas */
+  position: sticky;
+  bottom: 20px;
+  z-index: 10;
 }
 
 /* Estilo base de botones */
 .reading-buttons button {
-  background-color: white;
-  color: #333;
+  background-color: #f8c300;
+  color: #000;
   border: 2px solid #333;
   border-radius: 12px;
   padding: 10px 20px;
@@ -19,7 +35,14 @@
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
-  opacity: 0.6;
+}
+
+.reading-buttons button:hover {
+  background-color: #ffffff; /* Amarillo brillante o el color que quieras */
+  color: #000;
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 /* Botón activo cuando se pueden ver las cartas */
@@ -35,6 +58,8 @@
 .reading-buttons button.active:hover {
   transform: scale(1.15);
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  background-color: rgb(252, 252, 252);
+  color: rgb(15, 70, 83);
 }
 
 /* Botón deshabilitado */

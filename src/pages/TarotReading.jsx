@@ -5,7 +5,7 @@ import { fetchAllCards } from '../services';
 import Card from '../components/Card';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
-import './CardsList.css'; // Reutilizamos estilos
+import './CardsList.css';
 import './TarotReading.css';
 
 export default function TarotReading() {
@@ -66,11 +66,6 @@ export default function TarotReading() {
     navigate('/reading');
   };
 
-  // Reinicia la selección y muestra alert
-  const resetSelection = () => {
-    setSelectedCards([]);
-    alert('Selección reiniciada');
-  };
 
   return (
     <div className="cards-page">
@@ -86,7 +81,14 @@ export default function TarotReading() {
               Elige tres cartas para tu lectura del pasado, presente y futuro.
             </p>
             <div className="deck-image-wrapper">
-              <img src="/manos.png" alt="Manos de pitonisa" className="deck-image" />
+              <img src="/manos.png" alt="Manos de pitonisa" className="deck-image2" />
+            </div>
+
+            {/* 🔮 Nuevo botón */}
+            <div className="reading-buttons">
+              <button onClick={() => setShowCards(true)}>
+                Empezar lectura
+              </button>
             </div>
           </section>
         )}
@@ -113,7 +115,7 @@ export default function TarotReading() {
               ))}
             </div>
 
-            {/* Botones centrados abajo */}
+            {/* Botones de lectura */}
             <div className="reading-buttons">
               <button
                 onClick={startReading}
@@ -121,9 +123,6 @@ export default function TarotReading() {
                 className={selectedCards.length === 3 ? 'active' : ''}
               >
                 Ver lectura
-              </button>
-              <button onClick={resetSelection}>
-                Reiniciar
               </button>
             </div>
           </>

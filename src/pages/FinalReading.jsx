@@ -5,6 +5,7 @@ import { fetchCardById } from '../services';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import './CardsDetail.css'; // reutilizamos los estilos de detalle
+import './TarotReading.css';
 
 export default function FinalReading() {
   const navigate = useNavigate();
