@@ -84,7 +84,7 @@ export default function TarotReading() {
               <img src="/manos.png" alt="Manos de pitonisa" className="deck-image2" />
             </div>
 
-            {/* 🔮 Nuevo botón */}
+            {/* Nuevo botón */}
             <div className="reading-buttons">
               <button onClick={() => setShowCards(true)}>
                 Empezar lectura
@@ -95,6 +95,17 @@ export default function TarotReading() {
 
         <div className="cards-grid-background"></div>
 
+         {/* Botón de lectura */}
+            <div className="reading-buttons">
+              <button
+                onClick={startReading}
+                disabled={selectedCards.length !== 3}
+                className={selectedCards.length === 3 ? 'active' : ''}
+              >
+                Ver lectura
+              </button>
+            </div>
+            
         {showCards && cards.length > 0 && (
           <>
             <div className="cards-grid">
@@ -115,16 +126,7 @@ export default function TarotReading() {
               ))}
             </div>
 
-            {/* Botones de lectura */}
-            <div className="reading-buttons">
-              <button
-                onClick={startReading}
-                disabled={selectedCards.length !== 3}
-                className={selectedCards.length === 3 ? 'active' : ''}
-              >
-                Ver lectura
-              </button>
-            </div>
+           
           </>
         )}
       </main>

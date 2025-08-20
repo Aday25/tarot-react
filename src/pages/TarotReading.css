@@ -14,7 +14,8 @@
 
 /* Contenedor de botones centrado y fijo */
 .reading-buttons {
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 15px;
   text-align: center;
   display: flex;
   justify-content: center;
