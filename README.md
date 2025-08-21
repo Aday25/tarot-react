@@ -134,7 +134,7 @@ La música se ha implementado en **JavaScript puro**, sin librerías externas.
 - El audio se crea una sola vez y se controla con un botón en el **Navbar**.  
 - Se usa `localStorage` para recordar si estaba activa entre páginas.  
 - Se controla la reproducción y pausa manualmente con un botón interactivo 🔊 / 🔈, garantizando que la música **siga sonando aunque el usuario navegue entre páginas**.
-- Letra completa y traducción disponible en [`lyrics.pdf`](public/lyrics.pdf), transmite calma y guía espiritual, como un susurro del mar y la luna. 
+Letra completa y traducción disponible en [lyrics.pdf](public/lyrics.pdf). Transmite calma y guía espiritual, como un susurro del mar y la luna. 
 
 ---
 
@@ -151,7 +151,6 @@ Abrir en el navegador: http://localhost:3000
 <p align="center">
   <strong><em>"Las mujeres audaces, guiadas por el misterio y la ciencia, abren puertas que despiertan la luz del saber."</em></strong>
 </p>
----
 
 <p align="center"> <img src="public/logo.png" alt="Logo Tarot-React" width="150px"/> </p>
 
