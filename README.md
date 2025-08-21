@@ -28,7 +28,7 @@ Cada **diosa o científica histórica** asociada a las cartas aporta un valor ed
 La app obtiene la información de las cartas mediante la **API pública de tarot**:  
 `https://6872278c76a5723aacd3cbb3.mockapi.io/api/v1/tarot`.
 
-Se utilizan **métodos GET** para:  
+Se utiliza el **método GET** para:  
 - **Traer todas las cartas:** devuelve un array de cartas en formato JSON.  
 - **Traer una carta concreta por id:** devuelve los detalles de una carta específica, incluyendo nombre, imagen, descripción del arcano y diosa asociada.  
 
@@ -56,34 +56,34 @@ Esto permite que las cartas y las imágenes se carguen **dinámicamente**, sin n
 ```
 TAROT-REACT/
 │
-├─ public/ # Recursos visuales, multimedia y decorativos
-│ ├─ audioController.js/ # Se mantiene en la navegación entre las páginas que forman la web sin conflictos.
+├─ public/
+│ ├─ logo.png
+│ ├─ screencaps.png
+│ ├─ lyrics.pdf
+│ └─ whispers.mp3
+│
 ├─ src/
-│ ├─ assets/ 
-│ ├─ components/ # Componentes reutilizables
-│ │ ├─ AppWrapper.jsx # Para aplicar ScrollToTop en todas las páginas
-│ │ ├─ Footer/ # compuesto por logo, detalle del proyecto y enlaces de contacto.
-│ │ ├─ Navbar/ # formado por el título, 2 velas decorativas animadas y botones para navegar y activar acciones, además del controlador de sonido.
-│ │ ├─ Candle.jsx # Velas con animación decorativas en Navbar
-│ │ ├─ Card # Representa cada carta
-│ │ └─ ScrollToTop.jsx # Para aplicar ScrollToTop en todas las páginas
-│ ├─ pages/ # Páginas que forman la web
-│ │ ├─ CardsList.jsx # Página principal y desde donde se elige a un Arcano y su Diosa asociada.
-│ │ ├─ CardsDetail.jsx # Resultado del Arcano elegido
-│ │ ├─ TarotReading.jsx # Página que invita a seleccionar tres cartas para lectura de tarot
-│ │ └─ FinalReading.jsx # Resultado de lectura: Pasado, Presente y Futuro
-│ ├─ App.jsx / App.css
+│ ├─ assets/
+│ ├─ components/
+│ │ ├─ AppWrapper.jsx
+│ │ ├─ Footer/
+│ │ ├─ Navbar/
+│ │ ├─ Candle.jsx
+│ │ ├─ Card/
+│ │ └─ ScrollToTop.jsx
+│
+│ ├─ pages/
+│ │ ├─ CardsList.jsx
+│ │ ├─ CardsDetail.jsx
+│ │ ├─ TarotReading.jsx
+│ │ └─ FinalReading.jsx
+│
+│ ├─ App.jsx
+│ └─ App.css
 │
 └─ package.json
 └─ router.jsx
 ```
----
-
-**Explicación rápida:**  
-- `components/`: piezas reutilizables como Card, Navbar y Footer.  
-- `pages/`: cada página principal (`CardsList`, `CardsDetail`, `TarotReading`, `FinalReading`).  
-- `App.jsx` / `App.css`: punto de entrada de la app.  
-
 ---
 
 ## Páginas principales 🖥️
@@ -145,19 +145,14 @@ cd tarot-react
 npm install
 npm start
 
+Abrir en el navegador: http://localhost:3000
 ```
-##Abrir en el navegador: http://localhost:3000
 ---
 <p align="center">
-  <em>"El misterio guía, y cada mujer abre puertas al conocimiento."</em>
+  <strong><em>"Las mujeres audaces, guiadas por el misterio y la ciencia, abren puertas que despiertan la luz del saber."</em></strong>
 </p>
 ---
 
 <p align="center"> <img src="public/logo.png" alt="Logo Tarot-React" width="150px"/> </p>
-
-
-
-
-
 
 
