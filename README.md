@@ -1,7 +1,8 @@
 # 🌊🌞 Tarot-React 🌛🌟
 
 ## 📋 Descripción
-Como su nombre indica, **Tarot-React** es una aplicación web hecha en **React** que permite interactuar con un mazo de cartas de tarot y realizar lecturas personalizadas.  
+
+**El tarot de las Diosas** es una aplicación web hecha en **React** que permite interactuar con un mazo de cartas de tarot y realizar lecturas personalizadas.  
 
 ![Preview de la App](public/screencaps.png)
 
