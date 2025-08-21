@@ -24,17 +24,6 @@ Cada **diosa o científica histórica** asociada a las cartas aporta un valor ed
 
 ---
 
-## ✅ Funcionalidades implementadas 
-- Reutilización de componentes (`Navbar`, `Footer`, `Card`)  
-- Animaciones de aparición de cartas (`CardsList` y `TarotReading`)  
-- Selección de 3 cartas y almacenamiento en `localStorage`  
-- Navegación entre páginas con React Router  
-- Scroll automático al cambiar de página  
-- Música de fondo continua y controlable  
-- Fondo degradado animado para aportar sensación de tranquilidad  
-- Trasera personalizada de cartas con mar, sol y luna  
----
-
 ### 📡 Consumo de la API
 La app obtiene la información de las cartas mediante la **API pública de tarot**:  
 `https://6872278c76a5723aacd3cbb3.mockapi.io/api/v1/tarot`.
@@ -49,6 +38,18 @@ Si la respuesta de la API no es correcta (`res.ok === false`), se lanza un error
 Esto permite que las cartas y las imágenes se carguen **dinámicamente**, sin necesidad de almacenarlas en `assets/`, manteniendo la app ligera y actualizable fácilmente.
 
 ---
+
+## ✅ Funcionalidades implementadas 
+- Reutilización de componentes (`Navbar`, `Footer`, `Card`)  
+- Animaciones de aparición de cartas (`CardsList` y `TarotReading`)  
+- Selección de 3 cartas y almacenamiento en `localStorage`  
+- Navegación entre páginas con React Router  
+- Scroll automático al cambiar de página  
+- Música de fondo continua y controlable  
+- Fondo degradado animado para aportar sensación de tranquilidad  
+- Trasera personalizada de cartas con mar, sol y luna  
+---
+
 
 ## Estructura del proyecto 🗂️
 
