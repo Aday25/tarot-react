@@ -4,7 +4,11 @@
 
 **El tarot de las Diosas** es una aplicación web hecha en **React** que permite interactuar con un mazo de cartas de tarot y realizar lecturas personalizadas.  
 
-![Preview de la App](public/screencaps.png)
+## 🎬 Demo del proyecto
+
+Mira cómo funciona la aplicación en este breve recorrido:
+
+[![Demo del proyecto](public/screencaps.png)](public/demo.mp4)
 
 El usuario puede:  
 - Explorar todas las cartas boca abajo y elegir una para ver su significado y la diosa asociada.  
