@@ -1,4 +1,3 @@
-// src/pages/TarotReading.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchAllCards } from '../services';
@@ -95,10 +94,12 @@ export default function TarotReading() {
                     card={card}
                     faceDown={true}
                     onClick={() => toggleSelectCard(card)}
-                    className={`drop-in-card ${selectedCards.includes(card.id) ? 'selected' : ''}`}
+                    className={`drop-in-card ${selectedCards.includes(card.id) ? 'selected' : ''} ${
+                      selectedCards.length === 3 && selectedCards.includes(card.id) ? 'highlight-third' : ''
+                    }`}
                     style={{
                       "--rotation": `${(i - cards.length / 2) * 3}deg`,
-                      animationDelay: `${i * 0.07}s`, 
+                      animationDelay: `${i * 0.07}s`,
                     }}
                   />
                 ))}

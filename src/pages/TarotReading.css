@@ -3,7 +3,7 @@
   flex: 1;
   padding: 24px 20px;
   color: #fff;
-  background: linear-gradient(-45deg, #1c1b1d, #18117a, rgb(66, 80, 239), #6591cb, #0c1f51);
+  background: linear-gradient(-45deg, #1c1b1d, #18117a, #6591cb, #0c1f51);
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
   box-sizing: border-box;
@@ -111,6 +111,12 @@
   opacity: 0.4;
   transform: none;
   box-shadow: none;
+}
+
+.highlight-third {
+  box-shadow: 0 0 25px gold;
+  transform: scale(1.15);
+  transition: all 0.3s ease;
 }
 
 /* BOTONES EN MÓVIL */
