@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import './Card.css';
 
-export default function Card({ card, onClick, className = '', style = {} }) {
-  const [flipped, setFlipped] = useState(true);
+export default function Card({ card, onClick, className = '', style = {}, faceDown = false }) {
+  // Si la carta empieza boca abajo, el estado inicial es flipped = true
+  const [flipped, setFlipped] = useState(faceDown);
 
   const handleClick = () => {
     if (flipped) {
       setFlipped(false);
       setTimeout(() => {
         if (onClick) onClick(card.id);
-      }, 2100);
+      }, 2100); // espera a que termine la animación
     }
   };
 

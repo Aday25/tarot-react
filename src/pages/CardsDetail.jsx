@@ -59,7 +59,7 @@ export default function CardsDetail() {
 
           <div className="reading-buttons">
             <button className="other-button" onClick={() => navigate('/')}>
-              Otro Arcano
+              Volver al inicio
             </button>
             <button
               className="other-button"

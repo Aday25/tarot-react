@@ -32,7 +32,7 @@ export default function Navbar({ onRevealClick }) {
         {/* Botón de repartir cartas primero en TarotReading */}
         {isTarotReadingPage && (
           <button className="other-button" onClick={onRevealClick}>
-            Repartir cartas
+            Empezar Lectura
           </button>
         )}
 

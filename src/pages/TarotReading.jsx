@@ -1,3 +1,4 @@
+// src/pages/TarotReading.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchAllCards } from '../services';
@@ -10,7 +11,6 @@ import './TarotReading.css';
 
 export default function TarotReading() {
   const [cards, setCards] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(0);
   const [showCards, setShowCards] = useState(false);
   const [selectedCards, setSelectedCards] = useState([]);
   const navigate = useNavigate();
@@ -27,20 +27,6 @@ export default function TarotReading() {
     }
     getCards();
   }, []);
-
-  useEffect(() => {
-    if (!showCards || !cards.length) return;
-    const interval = setInterval(() => {
-      setVisibleCount((count) => {
-        if (count >= cards.length) {
-          clearInterval(interval);
-          return count;
-        }
-        return count + 1;
-      });
-    }, 150);
-    return () => clearInterval(interval);
-  }, [showCards, cards]);
 
   const toggleSelectCard = (card) => {
     if (!card?.id) return;
@@ -63,7 +49,6 @@ export default function TarotReading() {
 
   return (
     <div className="cards-page">
-      {/* Scroll al top al montar la página */}
       <ScrollToTop />
 
       <Navbar
@@ -88,8 +73,9 @@ export default function TarotReading() {
 
         <div className="cards-grid-background"></div>
 
-        {showCards && (
+        {showCards && cards.length > 0 && (
           <>
+            {/* Botón desktop */}
             <div className="reading-buttons desktop-only">
               <button
                 onClick={startReading}
@@ -100,24 +86,26 @@ export default function TarotReading() {
               </button>
             </div>
 
+            {/* Grid de cartas */}
             <div className="cards-grid-wrapper">
               <div className="cards-grid">
-                {cards.slice(0, visibleCount).map((card, i) => (
+                {cards.map((card, i) => (
                   <Card
                     key={card.id}
                     card={card}
-                    faceDown
+                    faceDown={true}
                     onClick={() => toggleSelectCard(card)}
                     className={`drop-in-card ${selectedCards.includes(card.id) ? 'selected' : ''}`}
                     style={{
                       "--rotation": `${(i - cards.length / 2) * 3}deg`,
-                      animationDelay: `${i * 0.15}s`,
+                      animationDelay: `${i * 0.07}s`, 
                     }}
                   />
                 ))}
               </div>
             </div>
 
+            {/* Botón mobile */}
             <div className="reading-buttons mobile-floating">
               <button
                 onClick={startReading}

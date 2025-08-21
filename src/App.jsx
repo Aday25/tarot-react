@@ -3,6 +3,9 @@ import CardsList from './pages/CardsList';
 import CardsDetail from './pages/CardsDetail';
 import TarotReading from './pages/TarotReading';
 import FinalReading from './pages/FinalReading'; 
+import './App.css';
+import './Card.css';
+import './CardsList.css';
 
 function App() {
   return (

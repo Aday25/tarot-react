@@ -1,4 +1,3 @@
-/* CONTENEDOR DE CARTAS */
 .cards-grid {
   position: relative;
   margin-top: 5px;
@@ -10,76 +9,28 @@
   z-index: 20;
   border-radius: 10px;
   overflow: visible;
-  min-height: auto; /* eliminamos min-height para que no genere huecos */
+  min-height: auto;
 }
 
-/* FONDO ANIMADO DETRÁS DE LAS CARTAS */
-.cards-page-content {
-  flex: 1;
-  padding: 24px 20px;
-  color: #fff;
-  background: linear-gradient(-45deg, #1c1b1d, #18117a, rgb(66, 80, 239), #6591cb, #0c1f51);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* empuja al contenido hacia arriba */
-  min-height: 84vh; /* asegura que el footer siempre quede abajo */
-}
-
-/* Animación fondo */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* TEXTO DE BIENVENIDA */
-.welcome-text {
-  text-align: center;
-  color: #6fbdea;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin: 0;
-}
-
-.deck-image {
-  width: 200px; /* más grande */
-  max-width: 90%; /* que no desborde en móvil */
-  height: auto;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-/* OPCIONAL: animación suave para ocultar */
-.deck-image.hide {
-  opacity: 0;
-  transform: translateY(-50px);
-  pointer-events: none;
-}
-
-/* CONTENEDOR DE LA BARAJA */
-.deck-image-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-/* Animación de caída en abanico de las cartas */
+/* Animación caída en abanico */
 .drop-in-card {
   opacity: 0;
   animation: dropIn 0.6s ease-out forwards;
 }
 
 @keyframes dropIn {
-  0% {
-    transform: translateY(-150px) rotate(var(--rotation)) scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0) rotate(var(--rotation)) scale(1);
-    opacity: 1;
-  }
+  0% { transform: translateY(-150px) rotate(var(--rotation)) scale(0.8); opacity: 0; }
+  100% { transform: translateY(0) rotate(var(--rotation)) scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .cards-grid { max-width: max-content; }
+}
+@media (max-width: 1000px) {
+  .cards-grid { max-width: max-content; }
+}
+@media (max-width: 600px) {
+  .cards-grid { max-width: max-content; }
+  .card { width: 100px; height: 164px; }
 }

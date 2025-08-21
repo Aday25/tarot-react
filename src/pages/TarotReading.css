@@ -1,20 +1,67 @@
-.deck-image2 {
-  width: 430px;
-  /* más grande */
+/* FONDO ANIMADO DETRÁS DE LAS CARTAS */
+.cards-page-content {
+  flex: 1;
+  padding: 24px 20px;
+  color: #fff;
+  background: linear-gradient(-45deg, #1c1b1d, #18117a, rgb(66, 80, 239), #6591cb, #0c1f51);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 84vh;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* TEXTO DE BIENVENIDA */
+.welcome-text {
+  text-align: center;
+  color: #6fbdea;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* BARAJA */
+.deck-image {
+  width: 200px;
   max-width: 90%;
-  /* que no desborde en móvil */
   height: auto;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
+.deck-image.hide {
+  opacity: 0;
+  transform: translateY(-50px);
+  pointer-events: none;
+}
+.deck-image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
 
-/* OPCIONAL: animación suave para ocultar */
+/* Segunda baraja más grande */
+.deck-image2 {
+  width: 430px;
+  max-width: 90%;
+  height: auto;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 .deck-image2.hide {
   opacity: 0;
   transform: translateY(-50px);
   pointer-events: none;
 }
 
-/* Contenedor de botones centrado y fijo */
+/* BOTONES DE LECTURA */
 .reading-buttons {
   margin-top: 10px;
   margin-bottom: 15px;
@@ -27,7 +74,6 @@
   z-index: 10;
 }
 
-/* Estilo base de botones */
 .reading-buttons button {
   background-color: #f8c300;
   color: #000;
@@ -42,31 +88,24 @@
 
 .reading-buttons button:hover {
   background-color: #ffffff;
-  /* Amarillo brillante o el color que quieras */
   color: #000;
   transform: scale(1.1);
   opacity: 1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Botón activo cuando se pueden ver las cartas */
 .reading-buttons button.active {
   background-color: #f8c300;
-  /* Amarillo brillante o el color que quieras */
   color: #000;
   transform: scale(1.1);
   opacity: 1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-
-/* Efecto hover solo si está activo */
 .reading-buttons button.active:hover {
   transform: scale(1.15);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   color: rgb(15, 70, 83);
 }
-
-/* Botón deshabilitado */
 .reading-buttons button:disabled {
   cursor: not-allowed;
   opacity: 0.4;
@@ -74,23 +113,21 @@
   box-shadow: none;
 }
 
+/* BOTONES EN MÓVIL */
 .mobile-floating {
   display: none;
 }
-
 @media (max-width: 768px) {
   .mobile-floating {
     display: flex;
-    position: fixed; /* flotando sobre las cartas */
-    bottom: 20px; /* distancia desde el bottom de la ventana */
+    position: fixed;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 50;
     margin-bottom: 200px;
   }
-
   .desktop-only {
-  display: none;
-}
-
+    display: none;
+  }
 }
