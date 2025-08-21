@@ -4,6 +4,7 @@ import { fetchAllCards } from '../services';
 import Card from '../components/Card';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
+import ScrollToTop from '../components/ScrollToTop';
 import './CardsList.css';
 
 export default function CardsList() {
@@ -38,18 +39,24 @@ export default function CardsList() {
 
   return (
     <div className="cards-page">
-      <Navbar
-        onRevealClick={() => setShowCards(true)}
-      />
+      {/* ScrollToTop se activa cada vez que esta página se monta */}
+      <ScrollToTop />
+
+      <Navbar onRevealClick={() => setShowCards(true)} />
 
       <main className="cards-page-content">
         {!showCards && (
           <section className="welcome-section">
             <p className="welcome-text">
-              Bienvenid@ a tu portal de tarot. Libera a los Arcanos y elige una carta.
+              Bienvenid@ a tu portal de tarot. Libera a los Arcanos eligiendo una carta.
             </p>
             <div className="deck-image-wrapper">
               <img src="/baraja.png" alt="Mazo de cartas" className="deck-image" />
+            </div>
+
+            {/* Botón para empezar lectura */}
+            <div className="reading-buttons">
+              <button onClick={() => setShowCards(true)}>Liberar Arcanos</button>
             </div>
           </section>
         )}

@@ -1,6 +1,8 @@
 .deck-image2 {
-  width: 430px; /* más grande */
-  max-width: 90%; /* que no desborde en móvil */
+  width: 430px;
+  /* más grande */
+  max-width: 90%;
+  /* que no desborde en móvil */
   height: auto;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
@@ -39,27 +41,28 @@
 }
 
 .reading-buttons button:hover {
-  background-color: #ffffff; /* Amarillo brillante o el color que quieras */
+  background-color: #ffffff;
+  /* Amarillo brillante o el color que quieras */
   color: #000;
   transform: scale(1.1);
   opacity: 1;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Botón activo cuando se pueden ver las cartas */
 .reading-buttons button.active {
-  background-color: #f8c300; /* Amarillo brillante o el color que quieras */
+  background-color: #f8c300;
+  /* Amarillo brillante o el color que quieras */
   color: #000;
   transform: scale(1.1);
   opacity: 1;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Efecto hover solo si está activo */
 .reading-buttons button.active:hover {
   transform: scale(1.15);
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  background-color: rgb(252, 252, 252);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   color: rgb(15, 70, 83);
 }
 
@@ -70,4 +73,24 @@
   transform: none;
   box-shadow: none;
 }
- 
+
+.mobile-floating {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-floating {
+    display: flex;
+    position: fixed; /* flotando sobre las cartas */
+    bottom: 20px; /* distancia desde el bottom de la ventana */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    margin-bottom: 200px;
+  }
+
+  .desktop-only {
+  display: none;
+}
+
+}

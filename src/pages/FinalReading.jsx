@@ -1,9 +1,9 @@
-// FinalReading.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchCardById } from '../services';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
+import ScrollToTop from '../components/ScrollToTop';
 import './CardsDetail.css'; // reutilizamos los estilos de detalle
 import './TarotReading.css';
 
@@ -27,6 +27,9 @@ export default function FinalReading() {
 
   return (
     <div className="cards-detail-page">
+      {/* Scroll al top al montar la página */}
+      <ScrollToTop />
+
       <Navbar />
 
       <main className="cards-detail-content">

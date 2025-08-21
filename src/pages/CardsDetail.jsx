@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // 👈 añadimos useNavigate
+import { useParams, useNavigate } from 'react-router-dom';
 import { fetchCardById } from '../services';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
+import ScrollToTop from '../components/ScrollToTop';
 import './CardsDetail.css';
 import './TarotReading.css';
 
 export default function CardsDetail() {
   const { id } = useParams();
   const [card, setCard] = useState(null);
-  const navigate = useNavigate(); // 👈 ahora sí funciona
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     async function getCard() {
@@ -23,7 +24,11 @@ export default function CardsDetail() {
 
   return (
     <div className="cards-detail-page">
+      {/* Scroll al top al montar la página */}
+      <ScrollToTop />
+
       <Navbar />
+
       <main className="cards-detail-content">
         <div className="card-detail-container">
           <section className="arcane-section">
@@ -53,12 +58,11 @@ export default function CardsDetail() {
           </section>
 
           <div className="reading-buttons">
-            <button className="other-button"
-              onClick={() => navigate('/')}
-            >
+            <button className="other-button" onClick={() => navigate('/')}>
               Otro Arcano
             </button>
-            <button className="other-button"
+            <button
+              className="other-button"
               onClick={() => {
                 localStorage.removeItem('selectedCards');
                 navigate('/tarot-reading');
@@ -69,6 +73,7 @@ export default function CardsDetail() {
           </div>
         </div>
       </main>
+
       <Footer />
     </div>
   );

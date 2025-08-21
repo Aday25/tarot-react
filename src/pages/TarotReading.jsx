@@ -1,10 +1,10 @@
-// src/pages/TarotReading.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchAllCards } from '../services';
 import Card from '../components/Card';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
+import ScrollToTop from '../components/ScrollToTop';
 import './CardsList.css';
 import './TarotReading.css';
 
@@ -15,7 +15,6 @@ export default function TarotReading() {
   const [selectedCards, setSelectedCards] = useState([]);
   const navigate = useNavigate();
 
-  // Carga las cartas desde la API
   useEffect(() => {
     async function getCards() {
       try {
@@ -29,7 +28,6 @@ export default function TarotReading() {
     getCards();
   }, []);
 
-  // Animación de aparición de cartas
   useEffect(() => {
     if (!showCards || !cards.length) return;
     const interval = setInterval(() => {
@@ -44,10 +42,8 @@ export default function TarotReading() {
     return () => clearInterval(interval);
   }, [showCards, cards]);
 
-  // Selección de cartas (máx 3)
   const toggleSelectCard = (card) => {
     if (!card?.id) return;
-
     if (selectedCards.includes(card.id)) {
       setSelectedCards((prev) => prev.filter((id) => id !== card.id));
     } else {
@@ -59,16 +55,17 @@ export default function TarotReading() {
     }
   };
 
-  // Inicia la lectura solo si hay 3 cartas seleccionadas
   const startReading = () => {
     if (selectedCards.length !== 3) return;
     localStorage.setItem('selectedCards', JSON.stringify(selectedCards));
     navigate('/reading');
   };
 
-
   return (
     <div className="cards-page">
+      {/* Scroll al top al montar la página */}
+      <ScrollToTop />
+
       <Navbar
         onRevealClick={() => setShowCards(true)}
         onOtherClick={() => alert('Ya estás en la lectura')}
@@ -83,20 +80,17 @@ export default function TarotReading() {
             <div className="deck-image-wrapper">
               <img src="/manos.png" alt="Manos de pitonisa" className="deck-image2" />
             </div>
-
-            {/* Nuevo botón */}
             <div className="reading-buttons">
-              <button onClick={() => setShowCards(true)}>
-                Empezar lectura
-              </button>
+              <button onClick={() => setShowCards(true)}>Empezar lectura</button>
             </div>
           </section>
         )}
 
         <div className="cards-grid-background"></div>
 
-         {/* Botón de lectura */}
-            <div className="reading-buttons">
+        {showCards && (
+          <>
+            <div className="reading-buttons desktop-only">
               <button
                 onClick={startReading}
                 disabled={selectedCards.length !== 3}
@@ -105,28 +99,34 @@ export default function TarotReading() {
                 Ver lectura
               </button>
             </div>
-            
-        {showCards && cards.length > 0 && (
-          <>
-            <div className="cards-grid">
-              {cards.slice(0, visibleCount).map((card, i) => (
-                <Card
-                  key={card.id}
-                  card={card}
-                  faceDown
-                  onClick={() => toggleSelectCard(card)}
-                  className={`drop-in-card ${
-                    selectedCards.includes(card.id) ? 'selected' : ''
-                  }`}
-                  style={{
-                    "--rotation": `${(i - cards.length / 2) * 3}deg`,
-                    animationDelay: `${i * 0.15}s`,
-                  }}
-                />
-              ))}
+
+            <div className="cards-grid-wrapper">
+              <div className="cards-grid">
+                {cards.slice(0, visibleCount).map((card, i) => (
+                  <Card
+                    key={card.id}
+                    card={card}
+                    faceDown
+                    onClick={() => toggleSelectCard(card)}
+                    className={`drop-in-card ${selectedCards.includes(card.id) ? 'selected' : ''}`}
+                    style={{
+                      "--rotation": `${(i - cards.length / 2) * 3}deg`,
+                      animationDelay: `${i * 0.15}s`,
+                    }}
+                  />
+                ))}
+              </div>
             </div>
 
-           
+            <div className="reading-buttons mobile-floating">
+              <button
+                onClick={startReading}
+                disabled={selectedCards.length !== 3}
+                className={selectedCards.length === 3 ? 'active' : ''}
+              >
+                Ver lectura
+              </button>
+            </div>
           </>
         )}
       </main>
