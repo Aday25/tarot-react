@@ -7,6 +7,7 @@ export default function Candle() {
         <div className="wax"></div>
         <div className="wick"></div>
         <div className="flame"></div>
+        <div className="smoke"></div>
         <div className="glow"></div>
       </div>
     </div>
