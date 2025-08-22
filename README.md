@@ -6,7 +6,7 @@
 
 Aquí se muestran las capturas de la web:
 <p align="center">
-  <img src="public/screencaps.png" alt="capturas" width="200px"/>
+  <img src="public/screencaps.png" alt="capturas"/>
 </p>
 
 
