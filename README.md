@@ -14,7 +14,7 @@ El usuario puede:
 - Explorar todas las cartas boca abajo y elegir una para ver su significado y la diosa asociada.  
 - Realizar lecturas de pasado, presente y futuro seleccionando tres cartas.  
 
-Cada **diosa o científica histórica** asociada a las cartas aporta un valor educativo y de reconocimiento, más allá del tarot tradicional.  
+Cada **diosa o científica** asociada a las cartas aporta un valor educativo y de reconocimiento, más allá del tarot tradicional.  
 
 ---
 
@@ -112,6 +112,8 @@ Cada cambio de página hace scroll automáticamente hacia arriba mediante `AppWr
 ---
 
 ## 🎨 Estilo visual
+
+- **Animación y distibución de las cartas:** creado un efecto para que simule que las cartas se reparten sobre la mesa, suavemente. Además, se ha calculado el tamaño y espacio para que las 22 cartas ocuparan la pantalla de desktop en 2 filas, y no hubiera condicionamiento al elegirlas para la lectura o elección de Arcano.
 
 - **Fondo degradado animado:** genera un movimiento de colores oscuros y azules suaves, aportando sensación de tranquilidad nocturna.
   
