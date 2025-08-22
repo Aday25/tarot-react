@@ -1,4 +1,4 @@
-# 🌊🌞 Tarot-React 🌛🌟
+# 🌊🌞 El Tarot de las Diosas🌛🌟
 
 ## 📋 Descripción
 
