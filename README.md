@@ -13,7 +13,7 @@ Aquí se muestran las capturas de la web:
 
 ## 🎥 Demo del proyecto
 
-Puedes ver la presentación del proyecto en LinkedIn:  
+Puedes ver cómo funciona en un recorrido por la web en el siguiente enlace:  
 [Ver video en LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7364609732050849792/)
 
 
