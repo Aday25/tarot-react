@@ -57,7 +57,7 @@ Esto permite que las cartas y las imágenes se carguen **dinámicamente**, sin n
 ---
 
 
-## Estructura del proyecto 🗂️
+## 🗂️ Estructura del proyecto
 
 ```
 TAROT-REACT/
@@ -92,7 +92,7 @@ TAROT-REACT/
 ```
 ---
 
-## Páginas principales 🖥️
+## 🖥️ Páginas principales
 - **CardsList:** todas las cartas boca abajo con animaciones y botón para revelar arcanos.  
 - **CardsDetail:** carta seleccionada + diosa asociada. Opciones de volver al inicio o empezar lectura completa.  
 - **TarotReading:** selección de 3 cartas → pasado, presente, futuro. Guardado en `localStorage`.  
@@ -133,7 +133,7 @@ Cada cambio de página hace scroll automáticamente hacia arriba mediante `AppWr
 --- 
 
 
-## Música ambiental 🎶
+## 🎶 Música ambiental 
 La aplicación incluye una pista musical generada con **Suno AI**, suave y relajante, con letras que evocan el mar y la conexión con lo espiritual.   
 
 🔹 **Implementación técnica:** asegura una experiencia inmersiva, constante y no intrusiva. 
@@ -145,7 +145,7 @@ La música se ha implementado en **JavaScript puro**, sin librerías externas.
 
 ---
 
-## Cómo ejecutar el proyecto ▶️
+## ▶️ Cómo ejecutar el proyecto
 ```
 git clone https://github.com/Aday25/tarot-react.git
 cd tarot-react
@@ -156,7 +156,7 @@ Abrir en el navegador: http://localhost:3000
 ```
 ---
 <p align="center">
-  <strong><em>"Las mujeres audaces, guiadas por el misterio y la ciencia, abren puertas que despiertan la luz del saber."</em></strong>
+  <strong><em>✒️​ "Las mujeres audaces, guiadas por el misterio y la ciencia, abren puertas que despiertan la luz del saber."</em></strong>
 </p>
 
 <p align="center"> <img src="public/logo.png" alt="Logo Tarot-React" width="150px"/> </p>
