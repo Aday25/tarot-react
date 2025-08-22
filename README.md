@@ -109,7 +109,7 @@ TAROT-REACT/
 
 ---
 
-- ### 💠 Cartas dinámicas
+## 🎴​ Cartas dinámicas
 Cada carta se representa mediante el componente `Card.jsx`, que puede empezar boca abajo y voltearse al hacer click, mostrando su arcano y la diosa asociada.  
 El componente usa **estado interno (`useState`)** para controlar la animación, permite **interacción por teclado** (`Enter`) y soporta **lazy loading** de imágenes para optimizar el rendimiento. Además, es **extensible** mediante `className` y `style` personalizados, adaptándose a diferentes páginas y estilos de la app.  
 
@@ -164,6 +164,15 @@ npm start
 Abrir en el navegador: http://localhost:3000
 ```
 ---
+
+## 🌟 Reconocimientos
+
+Agradezco al Bootcamp **[Factoria-F5 Madrid](https://github.com/Factoria-F5-madrid)** por todo el aprendizaje y apoyo que ha hecho posible este proyecto.  
+
+Y por supuesto, Gracias especialmente a [CeliaMi](https://github.com/CeliaMi) y [anaaragon88](https://github.com/anaaragon88) por ser quienes nos enseñan y guían en este camino.
+
+---
+
 <p align="center">
   <strong><em>✒️​ "Las mujeres audaces, guiadas por el misterio y la ciencia, abren puertas que despiertan la luz del saber."</em></strong>
 </p>
