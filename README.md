@@ -13,7 +13,7 @@ Puedes explorar la aplicación tú mism@ en vivo en el siguiente enlace: [Tarot 
 O tienes la demo para ver cómo funciona en un recorrido por la web aquí:  
 [Ver video en LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7364609732050849792/)
 
-Capturas de la web:
+Capturas de las páginas:
 <p align="center">
   <img src="public/screencaps.png" alt="capturas"/>
 </p>
