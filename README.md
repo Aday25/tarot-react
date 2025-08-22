@@ -9,6 +9,13 @@ Aquí se muestran las capturas de la web:
   <img src="public/screencaps.png" alt="capturas"/>
 </p>
 
+---
+
+## 🎥 Demo del proyecto
+
+Puedes ver la presentación del proyecto en LinkedIn:  
+[Ver video en LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7364609732050849792/)
+
 
 El usuario puede:  
 - Explorar todas las cartas boca abajo y elegir una para ver su significado y la diosa asociada.  
