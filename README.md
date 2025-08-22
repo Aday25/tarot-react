@@ -49,7 +49,8 @@ Esto permite que las cartas y las imágenes se carguen **dinámicamente**, sin n
 - Animaciones de aparición de cartas (`CardsList` y `TarotReading`)  
 - Selección de 3 cartas y almacenamiento en `localStorage`  
 - Navegación entre páginas con React Router  
-- Scroll automático al cambiar de página  
+- Scroll automático al cambiar de página
+- Botón de "Ver lectura" en TarotReading para responsive, que recorre la pantalla de arriba a abajo para que pueda ser activado desde cualquier parte. Al seleccionar las 3 cartas se puede clickar, antes no.
 - Música de fondo continua y controlable  
 - Fondo degradado animado para aportar sensación de tranquilidad  
 - Trasera personalizada de cartas con mar, sol y luna  
