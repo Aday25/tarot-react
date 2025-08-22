@@ -162,5 +162,5 @@ Abrir en el navegador: http://localhost:3000
 <p align="center"> <img src="public/logo.png" alt="Logo Tarot-React" width="150px"/> </p>
 
 
-> ⚠️ Nota: Este proyecto se desarrolla con fines educativos y de aprendizaje. Todo el contenido, multimedia (imágenes y música), se usa únicamente para práctica y demostración.
+> ⚠️ Nota: Este proyecto se desarrolla con fines educativos y de aprendizaje. Todo el contenido multimedia (imágenes y música) se usa únicamente para práctica y demostración.
 
