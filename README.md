@@ -15,7 +15,7 @@ O tienes la demo para ver cómo funciona en un recorrido por la web aquí:
 
 Capturas de las páginas:
 <p align="center">
-  <img src="public/screencaps.png" alt="capturas"/>
+  <img src="public/screencaps.png" alt="capturas" width="800px"/>
 </p>
 
 
