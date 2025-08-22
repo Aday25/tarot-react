@@ -10,10 +10,10 @@
 
 Puedes explorar la aplicación tú mism@ en vivo en el siguiente enlace: [Tarot de las Diosas](https://tarot-react.vercel.app/)
 
-O la demo para ver cómo funciona en un recorrido por la web aquí:  
+O tienes la demo para ver cómo funciona en un recorrido por la web aquí:  
 [Ver video en LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7364609732050849792/)
 
-Aquí se muestran las capturas de la web:
+Capturas de la web:
 <p align="center">
   <img src="public/screencaps.png" alt="capturas"/>
 </p>
