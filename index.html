@@ -3,14 +3,28 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/public/candle.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El tarot de las Diosas</title>
+  <title>El Tarot de las Diosas</title>
+  <link rel="icon" type="image/png" href="/candle.png" />
+
+  <!-- Open Graph para WhatsApp, Facebook, etc. -->
+  <meta property="og:title" content="El Tarot de las Diosas 🌊🌞🌛🌟" />
+  <meta property="og:description" content="Explora las cartas de tarot y descubre a mujeres científicas inspiradoras en esta app hecha con React." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tarot-react.vercel.app/" />
+  <meta property="og:image" content="https://tarot-react.vercel.app/wsp.png" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="El Tarot de las Diosas" />
+  <meta name="twitter:description" content="Explora las cartas de tarot y descubre a mujeres científicas inspiradoras en esta app hecha con React." />
+  <meta name="twitter:image" content="https://tarot-react.vercel.app/wsp.png" />
 </head>
-<!-- Audio de fondo (global) -->
-<audio id="bg-music" src="/whispers.mp3" preload="auto" loop></audio>
 
 <body>
+  <!-- Audio de fondo (global) -->
+  <audio id="bg-music" src="/whispers.mp3" preload="auto" loop></audio>
+
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
   <script src="/audioController.js" defer></script>
