@@ -6,7 +6,18 @@ export default function Footer() {
         <footer className="footer">
             <img src="/logo.png" alt="Logo personal" className="footer-logo" />
 
-            <p>© {new Date().getFullYear()} Tarot-React | Proyecto formativo del Bootcamp Factoría-F5 Fem Coders 4</p>
+            <p>
+                © 2025 Tarot-React | Proyecto formativo del Bootcamp{" "}
+                <a
+                    href="https://factoriaf5.org/?gad_source=1&gad_campaignid=22402204206&gbraid=0AAAAAoJX4sf7x39EUj13w3SqBaWcWiuOj&gclid=Cj0KCQjwwsrFBhD6ARIsAPnUFD1-_bS20cfExgJB_PHoxtYySpMvCKwnVsy_hHor-58lWmnvsD56r4gaAh_dEALw_wcB"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontWeight: "bold", color: "#cc8500ff", textDecoration: "none" }}
+                >
+                    Factoría F5
+                </a>{" "}
+                Fem Coders 4
+            </p>
 
             <div className="footer-contacts">
                 <a href="mailto:aday.it25@gmail.com" className="contact-link">
