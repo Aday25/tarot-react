@@ -16,7 +16,7 @@ export default function Footer() {
                 >
                     Factoría F5
                 </a>{" "}
-                Fem Coders 4
+                - Fem Coders 4
             </p>
 
             <div className="footer-contacts">
